@@ -9,15 +9,12 @@ from tensorflow.keras.models import model_from_json
 
 app = Flask(__name__)
 UPLOAD_FOLDER = 'static/uploads/'
-RESULT_FOLDER = 'static/result'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'} 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['RESULT_FOLDER'] = RESULT_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 10 * 1024 * 1024
-datahasil = os.listdir('static/result/')
 
 print("Init Flask App")
-class_list = {'GLIOMA': 0, 'MENINGIOMA': 1, 'PITUITARY': 2}
+class_list = {'A': 0, 'T': 1}
 
 @app.after_request
 def add_header(r):
